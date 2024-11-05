@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Markmap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.10.0/dist/browser/index.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        #markmap {
-            width: 100%;
-            height: 100vh;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.2/dist/style.css">
 </head>
 <body>
-    <div id="markmap"></div>
-
-    <script>
-        // Load Markdown file dynamically
-        fetch('index.md')  // Ensure this matches the filename exactly
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-            .then(markdown => {
-                const markmap = window.markmap;
-                const { transform } = markmap;
-                const { root } = transform(markdown);
-                markmap.render(root, document.getElementById('markmap'));
-            })
-            .catch(error => console.error('Error loading Markdown:', error));
-    </script>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.2/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.17.2/dist/index.js"></script><script>((r) => {
+            setTimeout(r);
+          })(() => {
+  const { markmap, mm } = window;
+  const toolbar = new markmap.Toolbar();
+  toolbar.attach(mm);
+  const el = toolbar.render();
+  el.setAttribute("style", "position:absolute;bottom:20px;right:20px");
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+            })(() => window.markmap,null,{"content":"","children":[{"content":"Connected Things Hacks Curated List","children":[{"content":"Generic Methodology for Connected Things","children":[],"payload":{"lines":"2,3"}},{"content":"IoT","children":[],"payload":{"lines":"3,4"}},{"content":"Auto","children":[],"payload":{"lines":"4,5"}},{"content":"ICS","children":[],"payload":{"lines":"5,6"}},{"content":"IoMT","children":[],"payload":{"lines":"6,7"}},{"content":"IoBT","children":[],"payload":{"lines":"7,8"}},{"content":"DroneSec","children":[],"payload":{"lines":"8,9"}},{"content":"Hardware","children":[],"payload":{"lines":"9,10"}}],"payload":{"lines":"0,1"}},{"content":"Master Collection of IoT, Embedded, Industrial &amp; Automotive, Core Tech Resources","children":[{"content":"Awesome IoT &amp; Embedded &amp; Industrial &amp; Automotive &amp;&amp; Radio &amp;&amp; other core concepts Curated List","children":[],"payload":{"lines":"17,18"}},{"content":"Repositories and Resources","children":[{"content":"IoT","children":[{"content":"<table data-lines=\"31,38\">\n<thead data-lines=\"31,32\">\n<tr data-lines=\"31,32\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"33,38\">\n<tr data-lines=\"33,34\">\n<td><a href=\"https://github.com/V33RU/IoTSecurity101\">IoT Security 101</a></td>\n<td>A curated list of resources specifically for IoT Security, including tools, research papers, tutorials, and other educational materials.</td>\n</tr>\n<tr data-lines=\"34,35\">\n<td><a href=\"https://github.com/engn33r/awesome-bluetooth-security\">Awesome Bluetooth Security</a></td>\n<td>Comprehensive collection of Bluetooth security resources, focusing on Bluetooth BR/EDR/LE, including research papers, tools, articles, and related security insights.</td>\n</tr>\n<tr data-lines=\"35,36\">\n<td><a href=\"https://github.com/fkie-cad/awesome-embedded-and-iot-security\">Awesome Embedded and IoT Security</a></td>\n<td>Extensive list of resources on embedded systems and IoT security, offering tools, documentation, research materials, and case studies in the field.</td>\n</tr>\n<tr data-lines=\"36,37\">\n<td><a href=\"https://github.com/nebgnahz/awesome-iot-hacks\">Awesome IoT Hacks</a></td>\n<td>A compilation of known IoT hacks and vulnerabilities, serving as a learning resource for understanding security breaches and preventive measures in IoT.</td>\n</tr>\n<tr data-lines=\"37,38\">\n<td><a href=\"https://phodal.github.io/awesome-iot/\">Awesome IoT</a></td>\n<td>An extensive list of Internet of Things (IoT) resources, covering various aspects of IoT development and security.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"31,38"}}],"payload":{"lines":"30,31"}},{"content":"Firmware and Binaries","children":[{"content":"<table data-lines=\"41,49\">\n<thead data-lines=\"41,42\">\n<tr data-lines=\"41,42\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"43,49\">\n<tr data-lines=\"43,44\">\n<td><a href=\"https://scriptingxss.gitbook.io/firmware-security-testing-methodology/\">OWASP Firmware Security Testing Methodology</a></td>\n<td>A comprehensive guide outlining methodologies for testing firmware security, aligned with OWASP's standards.</td>\n</tr>\n<tr data-lines=\"44,45\">\n<td><a href=\"https://github.com/andreia-oca/awesome-embedded-fuzzing\">Awesome-embedded-fuzzing</a></td>\n<td>A curated collection of resources, tools, and reading materials focused on fuzz testing for embedded systems.</td>\n</tr>\n<tr data-lines=\"45,46\">\n<td><a href=\"https://github.com/nhivp/Awesome-Embedded\">Awesome Embedded</a></td>\n<td>A curated list of awesome resources, tools, and references for embedded systems development and engineering.</td>\n</tr>\n<tr data-lines=\"46,47\">\n<td><a href=\"https://github.com/CaledoniaProject/awesome-opensource-security/blob/master/firmware-tools.md\">Awesome Open Source Security - Firmware Tools</a></td>\n<td>Part of a larger collection focusing on open-source security, this section specifically provides a list of tools and resources for firmware security.</td>\n</tr>\n<tr data-lines=\"47,48\">\n<td><a href=\"https://github.com/PreOS-Security/awesome-firmware-security/\">Awesome Firmware Security</a></td>\n<td>A curated list emphasizing firmware security, including research materials, tools, and educational content on securing firmware.</td>\n</tr>\n<tr data-lines=\"48,49\">\n<td><a href=\"https://github.com/iDoka/awesome-embedded-software\">Awesome Embedded Software</a></td>\n<td>A comprehensive compilation of software resources, libraries, and tools relevant for embedded software development.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"41,49"}}],"payload":{"lines":"40,41"}},{"content":"Automotive Zone","children":[{"content":"<table data-lines=\"54,61\">\n<thead data-lines=\"54,55\">\n<tr data-lines=\"54,55\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"56,61\">\n<tr data-lines=\"56,57\">\n<td><a href=\"https://github.com/jaredthecoder/awesome-vehicle-security\">Awesome Vehicle Security</a></td>\n<td>Comprehensive collection of vehicle security resources, including research papers, tools, and guides relevant to automotive security.</td>\n</tr>\n<tr data-lines=\"57,58\">\n<td><a href=\"https://github.com/iDoka/awesome-canbus\">Awesome CAN Bus</a></td>\n<td>A curated list of awesome Controller Area Network (CAN) bus libraries, tools, and educational resources.</td>\n</tr>\n<tr data-lines=\"58,59\">\n<td><a href=\"https://github.com/iDoka/awesome-linbus\">Awesome LIN Bus</a></td>\n<td>A curated list of resources and tools related to the Local Interconnect Network (LIN) bus, useful for automotive communication systems.</td>\n</tr>\n<tr data-lines=\"59,60\">\n<td><a href=\"https://github.com/iDoka/awesome-automotive-can-id\">Awesome Automotive CAN ID</a></td>\n<td>A collection of resources, examples, and information specifically related to automotive CAN Identifier (ID) systems.</td>\n</tr>\n<tr data-lines=\"60,61\">\n<td><a href=\"https://medium.com/@yogeshojha/car-hacking-101-practical-guide-to-exploiting-can-bus-using-instrument-cluster-simulator-part-i-cd88d3eb4a53\">Car Hacking Practical Guide 101</a></td>\n<td>A practical guide and tutorial for exploiting CAN Bus vulnerabilities using an instrument cluster simulator.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"54,61"}}],"payload":{"lines":"53,54"}},{"content":"Industrial","children":[{"content":"<table data-lines=\"64,68\">\n<thead data-lines=\"64,65\">\n<tr data-lines=\"64,65\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"66,68\">\n<tr data-lines=\"66,67\">\n<td><a href=\"https://github.com/hslatman/awesome-industrial-control-system-security\">Awesome Industrial Control System Security</a></td>\n<td>A curated list of awesome Industrial Control System (ICS) security resources, including tools, research, and educational materials for securing ICS environments.</td>\n</tr>\n<tr data-lines=\"67,68\">\n<td><a href=\"https://github.com/S3cur1tyH4ggis/ICS-Security-Products\">ICS Security Products</a></td>\n<td>A comprehensive collection of security products and tools specifically tailored for Industrial Control Systems.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"64,68"}}],"payload":{"lines":"63,64"}},{"content":"Radio","children":[{"content":"<table data-lines=\"72,79\">\n<thead data-lines=\"72,73\">\n<tr data-lines=\"72,73\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"74,79\">\n<tr data-lines=\"74,75\">\n<td><a href=\"https://github.com/W00t3k/Awesome-Cellular-Hacking/blob/master/README.md\">Awesome-Cellular-Hacking</a></td>\n<td>Detailed resources for exploring and understanding cellular hacking techniques and tools.</td>\n</tr>\n<tr data-lines=\"75,76\">\n<td><a href=\"https://github.com/kyleterry/awesome-radio\">Awesome Radio</a></td>\n<td>A curated list of awesome software and resources related to radio technology and communications.</td>\n</tr>\n<tr data-lines=\"76,77\">\n<td><a href=\"https://github.com/ebu/awesome-broadcasting\">Awesome Broadcasting</a></td>\n<td>A collection of various resources, tools, and information related to broadcasting technologies.</td>\n</tr>\n<tr data-lines=\"77,78\">\n<td><a href=\"https://github.com/ysk256/awesome-gnuradio\">Awesome GNU Radio</a></td>\n<td>A curated list of resources, libraries, and tools for GNU Radio, a comprehensive free software toolkit for signal processing.</td>\n</tr>\n<tr data-lines=\"78,79\">\n<td><a href=\"https://github.com/jopohl/urh\">Universal Radio Hacker (URH)</a></td>\n<td>The official repository for Universal Radio Hacker (URH), a versatile software for analyzing and hacking unknown wireless protocols.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"72,79"}}],"payload":{"lines":"71,72"}},{"content":"Reverse Engineering","children":[{"content":"<table data-lines=\"81,84\">\n<thead data-lines=\"81,82\">\n<tr data-lines=\"81,82\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"83,84\">\n<tr data-lines=\"83,84\">\n<td><a href=\"https://github.com/mytechnotalent/Reverse-Engineering\">Reverse Engineering</a></td>\n<td>A repository related to reverse engineering techniques and resources, offering a comprehensive guide and tools for those interested in the field.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"81,84"}}],"payload":{"lines":"80,81"}},{"content":"Search Engines","children":[{"content":"<table data-lines=\"86,91\">\n<thead data-lines=\"86,87\">\n<tr data-lines=\"86,87\">\n<th>Repository</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody data-lines=\"88,91\">\n<tr data-lines=\"88,89\">\n<td><a href=\"https://community.turgensec.com/shodan-pentesting-guide/\">Shodan Pentesting Guide</a></td>\n<td>A comprehensive guide to Penetration Testing with Shodan, detailing methods and strategies for using Shodan in cybersecurity assessments.</td>\n</tr>\n<tr data-lines=\"89,90\">\n<td><a href=\"https://github.com/jakejarvis/awesome-shodan-queries\">Awesome Shodan Queries</a></td>\n<td>A curated list of amazingly crafted Shodan queries to explore and utilize in various cybersecurity contexts.</td>\n</tr>\n<tr data-lines=\"90,91\">\n<td><a href=\"https://github.com/edoardottt/awesome-hacker-search-engines\">Awesome Hacker Search Engines</a></td>\n<td>A compilation of specialized search engines useful for hackers and cybersecurity professionals, facilitating targeted information gathering.</td>\n</tr>\n</tbody>\n</table>","children":[],"payload":{"lines":"86,91"}}],"payload":{"lines":"85,86"}}],"payload":{"lines":"19,20"}}],"payload":{"lines":"11,12"}}]},null)</script>
 </body>
 </html>
