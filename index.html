@@ -1,16 +1,43 @@
-<script>
-    const markdown = `
-    # Markmap Example
-    ## Getting Started
-    - Install Markmap
-    - Create Markdown file
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markmap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.10.0/dist/browser/index.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
 
-    ## Usage
-    - Open markdown file in Markmap viewer
-    - View interactive mind map
-    `;
-    const markmap = window.markmap;
-    const { transform } = markmap;
-    const { root } = transform(markdown);
-    markmap.render(root, document.getElementById('markmap'));
-</script>
+        #markmap {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="markmap"></div>
+
+    <script>
+        // Load Markdown file dynamically
+        fetch('index.md')  // Ensure this matches the filename exactly
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(markdown => {
+                const markmap = window.markmap;
+                const { transform } = markmap;
+                const { root } = transform(markdown);
+                markmap.render(root, document.getElementById('markmap'));
+            })
+            .catch(error => console.error('Error loading Markdown:', error));
+    </script>
+</body>
+</html>
